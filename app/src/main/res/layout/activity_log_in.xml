@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="24dp">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/back"
+        android:scaleType="center"
+        android:contentDescription="@string/back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Log In Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/league_spartan_semibold"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="@id/back_button"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- Welcome Title -->
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Welcome Description -->
+    <TextView
+        android:id="@+id/welcome_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Email Label -->
+    <TextView
+        android:id="@+id/email_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email or Mobile Number"
+        android:textStyle="bold"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/welcome_desc"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/email_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="example@example.com"
+        android:background="@drawable/blue2_bg"
+        android:paddingHorizontal="12dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/email_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Password Label -->
+    <TextView
+        android:id="@+id/password_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/email_input"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:inputType="textPassword"
+        android:hint="*************"
+        android:background="@drawable/blue2_bg"
+        android:paddingHorizontal="12dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/password_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Eye icon -->
+    <ImageView
+        android:id="@+id/show_password"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ice_eye"
+        app:layout_constraintTop_toTopOf="@id/password_input"
+        app:layout_constraintBottom_toBottomOf="@id/password_input"
+        app:layout_constraintEnd_toEndOf="@id/password_input"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- Forget Password -->
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forget Password"
+        android:textColor="@color/blue"
+        android:textSize="13sp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/password_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Log In Button -->
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Log In"
+        android:textColor="@android:color/white"
+        android:background="@drawable/blue_bg"
+        app:backgroundTint="@null"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/forget_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Or sign up with -->
+    <TextView
+        android:id="@+id/or_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or sign up with"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Sign in icons -->
+    <LinearLayout
+        android:id="@+id/social_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/or_sign_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/gglogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/google"
+            android:background="@drawable/blue2_bg"
+            app:backgroundTint="@null"/>
+
+        <ImageButton
+            android:id="@+id/fblogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/facebook"
+            android:background="@drawable/blue2_bg"
+            app:backgroundTint="@null"/>
+
+        <ImageButton
+            android:id="@+id/vantaylogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/vantay"
+            android:background="@drawable/blue2_bg"
+            app:backgroundTint="@null"/>
+    </LinearLayout>
+
+    <!-- Sign Up -->
+    <TextView
+        android:id="@+id/sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Sign Up"
+        android:textColor="@color/black"
+        android:layout_marginTop="24dp"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/social_icons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

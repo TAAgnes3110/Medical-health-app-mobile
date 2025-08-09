@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.WelcomeScreenActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="138dp"
+        android:layout_height="138dp"
+        android:src="@drawable/logo2"
+        android:translationX="112dp"
+        android:translationY="235dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_skin"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/league_spartan_thin"
+        android:text="Skin"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        android:gravity="center"
+        android:translationX="115dp"
+        android:translationY="387dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_first"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/league_spartan_thin"
+        android:text="First"
+        android:textColor="@color/blue"
+        android:textSize="48sp"
+        android:gravity="center"
+        android:translationX="115dp"
+        android:translationY="425dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_dermatology"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/league_spartan_semibold"
+        android:text="Dermatology Center"
+        android:textColor="@color/blue"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:translationX="115dp"
+        android:translationY="478dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="267dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/league_spartan_light"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:gravity="center"
+        android:translationX="52dp"
+        android:translationY="570dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/logIn"
+        android:layout_width="207dp"
+        android:layout_height="45dp"
+        android:background="@drawable/blue_bg"
+        android:fontFamily="@font/league_spartan_medium"
+        android:gravity="center"
+        android:text="Log In"
+        android:textColor="@color/white"
+        app:backgroundTint="@null"
+        android:textSize="22dp"
+        android:translationX="82dp"
+        android:translationY="636dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="207dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:gravity="center"
+        android:text="Sign Up"
+        android:textColor="@color/blue"
+        app:backgroundTint="@null"
+        android:textSize="22dp"
+        android:background="@drawable/blue2_bg"
+        android:translationX="82dp"
+        android:translationY="688dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
