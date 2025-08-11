@@ -8,25 +8,27 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.medicalhealthappmobile.R
 
 class WelcomeScreenActivity : AppCompatActivity() {
-    private lateinit var logIn : Button;
-    private lateinit var signUp : Button;
+    private lateinit var logIn : Button
+    private lateinit var signUp : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_welcome_screen)
-        initUI();
+        initUI()
         logIn.setOnClickListener {
-            startActivity(Intent(this@WelcomeScreenActivity, LogInActivity::class.java));
-            finish();
+            val intent = Intent(this@WelcomeScreenActivity, LogInActivity::class.java)
+            intent.putExtra("FORCE_LOGIN", true)
+            startActivity(intent)
+            finish()
         }
 
         signUp.setOnClickListener {
-            startActivity(Intent(this@WelcomeScreenActivity, SignUpActivity::class.java));
-            finish();
+            startActivity(Intent(this@WelcomeScreenActivity, SignUpActivity::class.java))
+            finish()
         }
     }
 
-    public fun initUI(){
+    fun initUI(){
         logIn = findViewById(R.id.logIn)
         signUp = findViewById(R.id.signUp)
     }

@@ -1,10 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignUpActivity">
+    android:background="@color/white"
+    android:padding="24dp">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/back"
+        android:scaleType="center"
+        android:contentDescription="@string/back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Sign Up Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Account"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/league_spartan_semibold"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="@id/back_button"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- Full Name Label -->
+    <TextView
+        android:id="@+id/fullname_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full name"
+        android:textStyle="bold"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/back_button"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Full Name Input -->
+    <EditText
+        android:id="@+id/fullname_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="example@example.com"
+        android:background="@drawable/blue2_bg"
+        android:paddingHorizontal="12dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/fullname_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Password Label -->
+    <TextView
+        android:id="@+id/password_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/fullname_input"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:inputType="textPassword"
+        android:hint="*************"
+        android:background="@drawable/blue2_bg"
+        android:paddingHorizontal="12dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/password_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Eye icon -->
+    <ImageView
+        android:id="@+id/show_password"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ice_eye"
+        app:layout_constraintTop_toTopOf="@id/password_input"
+        app:layout_constraintBottom_toBottomOf="@id/password_input"
+        app:layout_constraintEnd_toEndOf="@id/password_input"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- Email Label -->
+    <TextView
+        android:id="@+id/email_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textStyle="bold"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/password_input"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/email_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="example@example.com"
+        android:background="@drawable/blue2_bg"
+        android:paddingHorizontal="12dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/email_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Mobile Number Label -->
+    <TextView
+        android:id="@+id/mobile_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobile Number"
+        android:textStyle="bold"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/email_input"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Mobile Number Input -->
+    <EditText
+        android:id="@+id/mobile_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="0123456789"
+        android:background="@drawable/blue2_bg"
+        android:paddingHorizontal="12dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/mobile_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/dob_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Of Birth"
+        android:textStyle="bold"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/mobile_input"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/dob_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="DD / MM / YYYY"
+        android:background="@drawable/blue2_bg"
+        android:paddingHorizontal="12dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/dob_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/terms_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By continuing, you agree to"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/dob_input"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/terms_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terms of Use and Privacy Policy."
+        android:textColor="@color/blue"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@id/terms_text"
+        app:layout_constraintStart_toEndOf="@id/terms_text"/>
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        android:background="@drawable/blue_bg"
+        app:backgroundTint="@null"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/terms_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Or sign up with -->
+    <TextView
+        android:id="@+id/or_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or sign up with"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/social_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/or_sign_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/gglogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/google"
+            android:background="@drawable/blue2_bg"
+            app:backgroundTint="@null"/>
+
+        <ImageButton
+            android:id="@+id/fblogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/facebook"
+            android:background="@drawable/blue2_bg"
+            app:backgroundTint="@null"/>
+
+        <ImageButton
+            android:id="@+id/vantaylogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/vantay"
+            android:background="@drawable/blue2_bg"
+            app:backgroundTint="@null"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/logIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="already have an account? Log in"
+        android:textColor="@color/black"
+        android:layout_marginTop="24dp"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/social_icons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

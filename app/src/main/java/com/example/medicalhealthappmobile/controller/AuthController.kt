@@ -18,17 +18,36 @@ class AuthController (private val view: AppCompatActivity) {
             return
         }
 
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-            task -> if (task.isSuccessful){
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
                 callback(true, "Sign in successful")
                 view.startActivity(Intent(view, MainActivity::class.java))
                 view.finish()
-            }
-            else {
+            } else {
                 callback(false, task.exception?.message ?: "Sign in failed")
             }
         }
     }
 
+    fun signup(fullname: String, password: String, email: String, mobile: String, dob: String, callback: (Boolean, String) -> Unit) {
+        if (fullname.isEmpty() || password.isEmpty() || email.isEmpty() || mobile.isEmpty() || dob.isEmpty()) {
+            callback(false, "All fields must be filled")
+            return
+        }
 
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                callback(true, "Sign up successful")
+                view.startActivity(Intent(view, MainActivity::class.java))
+                view.finish()
+            } else {
+                callback(false, task.exception?.message ?: "Sign up failed")
+            }
+        }
+    }
+
+    fun signOut(callback: (Boolean) -> Unit) {
+        auth.signOut()
+        callback(true)
+    }
 }

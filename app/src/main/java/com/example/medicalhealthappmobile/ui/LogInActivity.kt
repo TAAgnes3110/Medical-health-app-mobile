@@ -15,28 +15,31 @@ import com.example.medicalhealthappmobile.controller.AuthController
 import com.google.android.material.button.MaterialButton
 
 class LogInActivity : AppCompatActivity() {
-    private lateinit var back : ImageButton;
-    private lateinit var logIn : MaterialButton;
-    private lateinit var email : EditText;
-    private lateinit var password : EditText;
-    private lateinit var signUp : TextView;
-    private lateinit var forgotPassword : TextView;
-    private lateinit var google : ImageButton;
-    private lateinit var facebook : ImageButton;
-    private lateinit var vantay : ImageButton;
-    private lateinit var authController: AuthController;
+    private lateinit var back : ImageButton
+    private lateinit var logIn : MaterialButton
+    private lateinit var email : EditText
+    private lateinit var password : EditText
+    private lateinit var signUp : TextView
+    private lateinit var forgotPassword : TextView
+    private lateinit var google : ImageButton
+    private lateinit var facebook : ImageButton
+    private lateinit var vantay : ImageButton
+    private lateinit var authController: AuthController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_log_in)
-        initUI();
+        initUI()
         authController = AuthController(this)
 
-        authController.checkUserStatus { isLoggedIn ->
-            if(isLoggedIn){
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+        val forceLogin = intent.getBooleanExtra("FORCE_LOGIN", false)
+        if (!forceLogin) {
+            authController.checkUserStatus { isLoggedIn ->
+                if (isLoggedIn) {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
             }
         }
 
@@ -52,9 +55,14 @@ class LogInActivity : AppCompatActivity() {
                 if (message != null) Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
+
+        signUp.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
+        }
     }
 
-    public fun initUI(){
+    fun initUI(){
         back = findViewById(R.id.back_button)
         logIn = findViewById(R.id.login_button)
         email = findViewById(R.id.email_input)
