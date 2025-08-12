@@ -8,12 +8,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.medicalhealthappmobile.MainActivity
 import com.example.medicalhealthappmobile.R
 import com.example.medicalhealthappmobile.data.remote.FirebaseAuthDataSource
 import com.example.medicalhealthappmobile.data.repository.AuthRepositoryImpl
 import com.example.medicalhealthappmobile.service.AuthService
-import com.example.medicalhealthappmobile.ui.Activity.WelcomeScreenActivity
+import com.example.medicalhealthappmobile.ui.activity.SignUpActivity
+import com.example.medicalhealthappmobile.ui.activity.ResetPasswordActivity
+import com.example.medicalhealthappmobile.ui.activity.WelcomeScreenActivity
 import com.google.android.material.button.MaterialButton
 
 class LogInActivity : AppCompatActivity() {
@@ -57,6 +58,12 @@ class LogInActivity : AppCompatActivity() {
             startActivity(Intent(this, SignUpActivity::class.java))
             finish()
         }
+
+        forgotPassword.setOnClickListener {
+            val intent = Intent(this, ResetPasswordActivity::class.java)
+            intent.putExtra("EMAIL", email.text.toString().trim())
+            startActivity(intent)
+        }
     }
 
     private fun initUI() {
@@ -64,7 +71,7 @@ class LogInActivity : AppCompatActivity() {
         logIn = findViewById(R.id.login_button)
         email = findViewById(R.id.email_input)
         password = findViewById(R.id.password_input)
-        signUp = findViewById(R.id.sign_up)
+        signUp = findViewById(R.id.or_sign_up)
         forgotPassword = findViewById(R.id.forget_password)
         google = findViewById(R.id.gglogin)
         facebook = findViewById(R.id.fblogin)

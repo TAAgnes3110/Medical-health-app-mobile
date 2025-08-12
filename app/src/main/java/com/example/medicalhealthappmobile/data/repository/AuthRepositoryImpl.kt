@@ -16,7 +16,15 @@ class AuthRepositoryImpl(private val authDataSource: FirebaseAuthDataSource) : A
         authDataSource.signup(fullname, password, email, mobile, dob, callback)
     }
 
-    override fun signOut(callback: (Boolean) -> Unit) {
-        authDataSource.signOut(callback)
+    override fun sendOtp(email: String, callback: (Boolean, String) -> Unit) {
+        authDataSource.sendOtp(email, callback)
+    }
+
+    override fun verifyOtp(email: String, otp: String, callback: (Boolean, String) -> Unit) {
+        authDataSource.verifyOtp(email, otp, callback)
+    }
+
+    override fun resetPassword(email: String, newPassword: String, callback: (Boolean, String) -> Unit) {
+        authDataSource.resetPassword(email, newPassword, callback)
     }
 }

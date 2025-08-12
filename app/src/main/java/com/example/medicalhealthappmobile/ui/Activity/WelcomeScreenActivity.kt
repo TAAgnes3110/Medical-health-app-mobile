@@ -1,4 +1,4 @@
-package com.example.medicalhealthappmobile.ui.Activity
+package com.example.medicalhealthappmobile.ui.activity
 
 import android.content.Intent
 import android.os.Bundle

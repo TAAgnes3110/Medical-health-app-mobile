@@ -13,16 +13,19 @@
         android:theme="@style/Theme.MedicalHealthAppMobile"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.LogInActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Activity.WelcomeScreenActivity"
+            android:name=".ui.activity.WelcomeScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Activity.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

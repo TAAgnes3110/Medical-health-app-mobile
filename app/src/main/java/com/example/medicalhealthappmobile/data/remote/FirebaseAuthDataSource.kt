@@ -40,8 +40,34 @@ class FirebaseAuthDataSource {
         }
     }
 
-    fun signOut(callback: (Boolean) -> Unit) {
-        auth.signOut()
-        callback(true)
+    fun sendOtp(email: String, callback: (Boolean, String) -> Unit) {
+        if (email.isEmpty()) {
+            callback(false, "Email cannot be empty")
+            return
+        }
+        // Giả lập gửi OTP
+        callback(true, "OTP sent to $email")
+    }
+
+    fun verifyOtp(email: String, otp: String, callback: (Boolean, String) -> Unit) {
+        if (otp.isEmpty()) {
+            callback(false, "OTP cannot be empty")
+            return
+        }
+        // Giả lập xác minh OTP (OTP mặc định là "123456")
+        if (otp == "123456") {
+            callback(true, "OTP verified")
+        } else {
+            callback(false, "Invalid OTP")
+        }
+    }
+
+    fun resetPassword(email: String, newPassword: String, callback: (Boolean, String) -> Unit) {
+        if (email.isEmpty() || newPassword.isEmpty()) {
+            callback(false, "Email and new password cannot be empty")
+            return
+        }
+        // Giả lập đặt lại mật khẩu
+        callback(true, "Password reset successful")
     }
 }

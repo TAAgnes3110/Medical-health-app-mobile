@@ -1,12 +1,12 @@
 package com.example.medicalhealthappmobile.service
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.example.medicalhealthappmobile.MainActivity
 import com.example.medicalhealthappmobile.domain.repository.AuthRepository
 
 class AuthService(
-    private val view: AppCompatActivity,
+    private val view: FragmentActivity,
     private val authRepository: AuthRepository
 ) {
     fun checkUserStatus() {
@@ -38,7 +38,15 @@ class AuthService(
         }
     }
 
-    fun signOut(callback: (Boolean) -> Unit) {
-        authRepository.signOut(callback)
+    fun sendOtp(email: String, callback: (Boolean, String) -> Unit) {
+        authRepository.sendOtp(email, callback)
+    }
+
+    fun verifyOtp(email: String, otp: String, callback: (Boolean, String) -> Unit) {
+        authRepository.verifyOtp(email, otp, callback)
+    }
+
+    fun resetPassword(email: String, newPassword: String, callback: (Boolean, String) -> Unit) {
+        authRepository.resetPassword(email, newPassword, callback)
     }
 }
