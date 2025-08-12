@@ -36,7 +36,9 @@ class SignUpActivity : AppCompatActivity() {
         authService = AuthService(this, AuthRepositoryImpl(FirebaseAuthDataSource()))
 
         back.setOnClickListener {
-            startActivity(Intent(this, LogInActivity::class.java))
+            val intent = Intent(this, LogInActivity::class.java)
+            intent.putExtra("FORCE_LOGIN", true)
+            startActivity(intent)
             finish()
         }
 

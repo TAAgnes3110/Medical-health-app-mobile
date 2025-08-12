@@ -64,7 +64,7 @@ class LogInActivity : AppCompatActivity() {
         logIn = findViewById(R.id.login_button)
         email = findViewById(R.id.email_input)
         password = findViewById(R.id.password_input)
-        signUp = findViewById(R.id.or_sign_up)
+        signUp = findViewById(R.id.sign_up)
         forgotPassword = findViewById(R.id.forget_password)
         google = findViewById(R.id.gglogin)
         facebook = findViewById(R.id.fblogin)
