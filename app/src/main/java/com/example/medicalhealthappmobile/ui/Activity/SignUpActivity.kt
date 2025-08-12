@@ -1,4 +1,4 @@
-package com.example.medicalhealthappmobile.ui
+package com.example.medicalhealthappmobile.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.medicalhealthappmobile.R
-import com.example.medicalhealthappmobile.controller.AuthController
-import kotlin.math.log
+import com.example.medicalhealthappmobile.data.remote.FirebaseAuthDataSource
+import com.example.medicalhealthappmobile.data.repository.AuthRepositoryImpl
+import com.example.medicalhealthappmobile.service.AuthService
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var back: ImageButton
@@ -26,18 +25,15 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var google: ImageButton
     private lateinit var facebook: ImageButton
     private lateinit var vantay: ImageButton
-
-    private lateinit var logIn : TextView
-
-    private lateinit var auth : AuthController
+    private lateinit var logIn: TextView
+    private lateinit var authService: AuthService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_sign_up)
         initUI()
-
-        auth = AuthController(this)
+        authService = AuthService(this, AuthRepositoryImpl(FirebaseAuthDataSource()))
 
         back.setOnClickListener {
             startActivity(Intent(this, LogInActivity::class.java))
@@ -45,14 +41,14 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         signUp.setOnClickListener {
-            var fullnameIn = fullnameInput.text.toString()
-            var passwordIn = passwordInput.text.toString()
-            var emailIn = emailInput.text.toString()
-            var mobileIn = mobileInput.text.toString()
-            var dobIn = dobInput.text.toString()
+            val fullnameIn = fullnameInput.text.toString()
+            val passwordIn = passwordInput.text.toString()
+            val emailIn = emailInput.text.toString()
+            val mobileIn = mobileInput.text.toString()
+            val dobIn = dobInput.text.toString()
 
-            auth.signup(fullnameIn,passwordIn,emailIn,mobileIn,dobIn) { success, message ->
-                if (message != null) Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            authService.signup(fullnameIn, passwordIn, emailIn, mobileIn, dobIn) { success, message ->
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -64,7 +60,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    fun initUI(){
+    private fun initUI() {
         back = findViewById(R.id.back_button)
         signUp = findViewById(R.id.sign_up_button)
         fullnameInput = findViewById(R.id.fullname_input)
@@ -76,6 +72,5 @@ class SignUpActivity : AppCompatActivity() {
         facebook = findViewById(R.id.fblogin)
         vantay = findViewById(R.id.vantaylogin)
         logIn = findViewById(R.id.logIn)
-
     }
 }

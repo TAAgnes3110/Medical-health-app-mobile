@@ -1,10 +1,9 @@
-package com.example.medicalhealthappmobile.ui
+package com.example.medicalhealthappmobile.ui.Activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.medicalhealthappmobile.MainActivity
 import com.example.medicalhealthappmobile.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

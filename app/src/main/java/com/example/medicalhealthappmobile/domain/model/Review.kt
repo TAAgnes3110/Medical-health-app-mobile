@@ -1,4 +1,4 @@
-package com.example.medicalhealthappmobile.domain
+package com.example.medicalhealthappmobile.domain.model
 
 import java.time.LocalDateTime
 

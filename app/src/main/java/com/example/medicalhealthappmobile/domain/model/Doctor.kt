@@ -1,4 +1,4 @@
-package com.example.medicalhealthappmobile.domain
+package com.example.medicalhealthappmobile.domain.model
 
 data class Doctor(
     override val id: String,

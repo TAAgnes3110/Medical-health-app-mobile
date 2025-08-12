@@ -1,8 +1,7 @@
-package com.example.medicalhealthappmobile.ui
+package com.example.medicalhealthappmobile.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -11,36 +10,34 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medicalhealthappmobile.MainActivity
 import com.example.medicalhealthappmobile.R
-import com.example.medicalhealthappmobile.controller.AuthController
+import com.example.medicalhealthappmobile.data.remote.FirebaseAuthDataSource
+import com.example.medicalhealthappmobile.data.repository.AuthRepositoryImpl
+import com.example.medicalhealthappmobile.service.AuthService
+import com.example.medicalhealthappmobile.ui.Activity.WelcomeScreenActivity
 import com.google.android.material.button.MaterialButton
 
 class LogInActivity : AppCompatActivity() {
-    private lateinit var back : ImageButton
-    private lateinit var logIn : MaterialButton
-    private lateinit var email : EditText
-    private lateinit var password : EditText
-    private lateinit var signUp : TextView
-    private lateinit var forgotPassword : TextView
-    private lateinit var google : ImageButton
-    private lateinit var facebook : ImageButton
-    private lateinit var vantay : ImageButton
-    private lateinit var authController: AuthController
+    private lateinit var back: ImageButton
+    private lateinit var logIn: MaterialButton
+    private lateinit var email: EditText
+    private lateinit var password: EditText
+    private lateinit var signUp: TextView
+    private lateinit var forgotPassword: TextView
+    private lateinit var google: ImageButton
+    private lateinit var facebook: ImageButton
+    private lateinit var vantay: ImageButton
+    private lateinit var authService: AuthService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_log_in)
         initUI()
-        authController = AuthController(this)
+        authService = AuthService(this, AuthRepositoryImpl(FirebaseAuthDataSource()))
 
         val forceLogin = intent.getBooleanExtra("FORCE_LOGIN", false)
         if (!forceLogin) {
-            authController.checkUserStatus { isLoggedIn ->
-                if (isLoggedIn) {
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                }
-            }
+            authService.checkUserStatus()
         }
 
         back.setOnClickListener {
@@ -51,8 +48,8 @@ class LogInActivity : AppCompatActivity() {
         logIn.setOnClickListener {
             val emailInput = email.text.toString()
             val passwordInput = password.text.toString()
-            authController.login(emailInput, passwordInput) { success, message ->
-                if (message != null) Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            authService.login(emailInput, passwordInput) { success, message ->
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -62,7 +59,7 @@ class LogInActivity : AppCompatActivity() {
         }
     }
 
-    fun initUI(){
+    private fun initUI() {
         back = findViewById(R.id.back_button)
         logIn = findViewById(R.id.login_button)
         email = findViewById(R.id.email_input)

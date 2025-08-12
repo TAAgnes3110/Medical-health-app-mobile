@@ -1,4 +1,4 @@
-package com.example.medicalhealthappmobile.domain
+package com.example.medicalhealthappmobile.domain.model
 
 open class User(
     open val id: String,

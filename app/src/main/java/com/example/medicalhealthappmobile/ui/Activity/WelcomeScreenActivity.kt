@@ -1,4 +1,4 @@
-package com.example.medicalhealthappmobile.ui
+package com.example.medicalhealthappmobile.ui.Activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medicalhealthappmobile.R
+import com.example.medicalhealthappmobile.ui.activity.LogInActivity
+import com.example.medicalhealthappmobile.ui.activity.SignUpActivity
 
 class WelcomeScreenActivity : AppCompatActivity() {
     private lateinit var logIn : Button

@@ -1,15 +1,13 @@
-package com.example.medicalhealthappmobile.controller
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import com.example.medicalhealthappmobile.MainActivity
+package com.example.medicalhealthappmobile.data.remote
+
 import com.google.firebase.auth.FirebaseAuth
 
-class AuthController (private val view: AppCompatActivity) {
+class FirebaseAuthDataSource {
     private val auth = FirebaseAuth.getInstance()
 
-    fun checkUserStatus(callnback: (Boolean) -> Unit){
+    fun checkUserStatus(callback: (Boolean) -> Unit) {
         val currentUser = auth.currentUser
-        callnback(currentUser != null)
+        callback(currentUser != null)
     }
 
     fun login(email: String, password: String, callback: (Boolean, String) -> Unit) {
@@ -21,8 +19,6 @@ class AuthController (private val view: AppCompatActivity) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 callback(true, "Sign in successful")
-                view.startActivity(Intent(view, MainActivity::class.java))
-                view.finish()
             } else {
                 callback(false, task.exception?.message ?: "Sign in failed")
             }
@@ -38,8 +34,6 @@ class AuthController (private val view: AppCompatActivity) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 callback(true, "Sign up successful")
-                view.startActivity(Intent(view, MainActivity::class.java))
-                view.finish()
             } else {
                 callback(false, task.exception?.message ?: "Sign up failed")
             }
